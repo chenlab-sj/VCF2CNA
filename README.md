@@ -2,7 +2,7 @@
 
 This repository is comprises a suite of tools to aid with copy number analysis and tumor purity estimation. These tools are designed for use with data in the VCF format, Mutation Annotation format (MAF), or Bambino format (High20).  The types of data accepted are 1) Whole Exome Sequncing Data, 2) Paired Tumor/Normal Whole Genome Sequencing Data,  3) RNA-Seq Analysis - to determine allelic expression.
 
-https://github.com/XCLab/VCF2CNA/blob/master/Figure1_flowchart.pdf
+https://github.com/chenlab-sj/vcf2cna/blob/master/Figure1_flowchart.pdf
 
 ## Getting Started
 
