@@ -33,6 +33,9 @@ bash extract.sh
 
 ### Running the application
 
+VCF2CNA relies on germline and somatic SNVs. Do not filter germline SNVs from the input data.  
+VCF2CNA expects paired tumor/normal read count data for heterozygous sites from all chromosomes.
+
 To run the application use the execute.py python script
 
 ## Mandatory Arguments
@@ -81,6 +84,31 @@ python execute.py test.high_20.out ~/test_data ~/example_output -DiploidChr=13 -
 |XmaxSf         | Maximum X Scale Factor           | 1.50   |
 |R_Loc          | Path to R Program                | ""     |
 |R_ScriptLoc    | Path to RScript Program          | ""     |
+
+### Output Files
+
+|Filename                                 | Description                      |
+|-----------------------------------------|----------------------------------|
+|Samplename_CONSERTING_Mapability_100.txt | Copy Number Segments             |
+|Samplename_LOH_RegTree.txt               | Allelic Imabalnce by segment     |      
+|Samplename.jpg                           | Visualization of Copy Number     |
+|purity_Samplename.txt                    | Overall Tumor Purity Estimation  |
+|purity_Samplename.csv                    | Tumor Purity by Segment and Type |
+|purity_Samplename.png                    | Visualization of Purity Segments | 
+
+### Samplename_CONSERTING_Mapability_100.txt
+
+|Column    | Description                                                                           |
+|----------|---------------------------------------------------------------------------------------|
+|chrom     | Chromosome (X=23 and Y=24)                                                            |
+|loc.start | Starting coordinates of the segments                                                  |      
+|loc.end   | Ending coordinate of the segments                                                     |
+|num.mark  | Number of windows in the segment (Sequencing gaps and low mapability scores excluded) |
+|seg.mean  | The estimated GC corrected difference signal (2 copy gain will have a seg.mean of 1   |
+|GMEAN     | The mean coverage in the germline sample (A value of 1 represents diploid)            | 
+|DMEAN     | The mean coverage in the tumor sample                                                 |
+|LogRatio  | The log2ratio of the coverage signal between tumor and germline samples               |
+
 
 ## Authors
 
